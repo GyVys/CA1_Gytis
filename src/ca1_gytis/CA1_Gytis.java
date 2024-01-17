@@ -18,29 +18,44 @@ public class CA1_Gytis {
      */
     public static void main(String[] args) {
         
-        int i = 1;
-        int j = 1;
-        String readLine;
-        
-        // reading info from file
+        // reading info from file with Scanner
         try {
             Scanner input = new Scanner(new FileReader("students.txt"));
+
+            String[] array = new String[3];
             
-        while (input.hasNextLine()) {
+            String firstName, lastName, classes, studentNum;
             
-            
-            
-            String line = "Line" + i + " ";
-            
-            readLine = input.nextLine();
-            System.out.println(line + readLine);
-            i++;
+            for (int i = 1; input.hasNextLine(); i++) {
+
+                System.out.println("\nStudent no: " + i);
+                System.out.println("-------------------------");
+
+                for (int j = 0; j <= 2; j++) {
+                    
+                    array[j] = input.nextLine();
+                    
+                    if (j == 2){
+                    
+                    String[] name = array[0].split(" ");
+                    firstName = name[0];
+                    lastName = name[1];
+                    classes = array[1];
+                    studentNum = array[2];
+                    
+                    System.out.println("First name: " + firstName);
+                    System.out.println("Last name: " + lastName);
+                    System.out.println("Classes: " + classes);
+                    System.out.println("Student number: " + studentNum);
+                    
+                    }
+                }
             }
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
-        
+
     }
-    
+
 }
