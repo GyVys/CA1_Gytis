@@ -38,6 +38,7 @@ public class CA1_Gytis {
             String firstName, lastName, studentNumber;
             String workload = null;
             int  classes;
+            int numberAfterLetters = 0;
             
             // first loop is for checking if there are more than one student
             for (int i = 1; input.hasNextLine(); i++) {
@@ -52,11 +53,48 @@ public class CA1_Gytis {
                     
                     if (j == 2){
                     
-                    String[] name = array[0].split(" ");
+                    String[] name = array[0].split(" ");  // split First name and Last name with a space
                     firstName = name[0];
                     lastName = name[1];
                     classes = Integer.parseInt(array[1]);
                     studentNumber = array[2];
+                    
+                    int firstTwo = Integer.parseInt(studentNumber.substring(0, 2));  // extract first two digits from the Student Number
+                    
+                    // extract the digits after the letters
+                    if (studentNumber.length() > 5) {
+                        switch (studentNumber.length()) {
+                            case 6:
+                                if (studentNumber.substring(4, 5).matches("[a-zA-Z]")) {
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(5).trim());  // extract three digits after the letters if 5th char is a letter
+                                }
+                                else {
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(4).trim());  // extract three digits after the letters if 5th char is a number
+                                }   break;
+                            case 7:
+                                if (studentNumber.substring(4, 5).matches("[a-zA-Z]")) {
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(5).trim());  // extract three digits after the letters if 5th char is a letter
+                                }
+                                else {
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(4).trim());  // extract three digits after the letters if 5th char is a number
+                                }   break;
+                            case 8:
+                                if (studentNumber.substring(4, 5).matches("[a-zA-Z]")) {
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(5).trim());  // extract three digits after the letters if 5th char is a letter
+                                }
+                                else {
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(4, 7).trim());  // extract three digits after the letters if 5th char is a number
+                                }   break;
+                            default:
+                                if (studentNumber.substring(4, 5).matches("[a-zA-Z]")) {
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(5, 8).trim());  // extract three digits after the letters if 5th char is a letter
+                                }
+                                else {
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(4, 7).trim());  // extract three digits after the letters if 5th char is a number
+                                }
+                                break;
+                        }
+                    }
                     
                     // Assign a Workload by the number of classes
                     switch(classes) {
@@ -101,7 +139,7 @@ public class CA1_Gytis {
                     else if (!studentNumber.substring(0, 2).matches("[0-9]+")) {
                         System.out.println("The first 2 characters must be numbers!");
                     }
-                    
+                                        
                     // The 3rd  and 4th characters must be letters
                     else if (!studentNumber.substring(2, 4).matches("[a-zA-Z]+")) {
                         System.out.println("The 3rd and 4th characters must be letters!");
@@ -124,6 +162,17 @@ public class CA1_Gytis {
                             System.out.println("Everything after the last letter character must be a number!");
                         }
                     
+                    // FOR DISTINCTION.
+                    
+                    // The first 2 characters must be numbers bigger than 20 (at least year 2020 or higher)
+                    else if (!(firstTwo >= 20)) {
+                        System.out.println("The student number year must be 2020 or higher!");
+                    }
+                    
+                    else if (!(numberAfterLetters >= 1 && numberAfterLetters <= 200)) {
+                        System.out.println("The number after the letter(s) must be reasonable (between 1 and 200)!");
+                    }
+                    
                     else {
                         try {
                             bw.write(studentNumber + " - " + lastName + "\n" + workload + "\n");
@@ -132,16 +181,19 @@ public class CA1_Gytis {
                             System.out.println(e);
                         }
                         
+                        System.out.println("Student details were successfully written to a file.");
+                        
                         // these are just for testing purposes
-                        System.out.println("First name: " + firstName);
-                        System.out.println("Last name: " + lastName);
-                        System.out.println("Classes: " + classes);
-                        System.out.println("Student number: " + studentNumber);
+//                        System.out.println("First name: " + firstName);
+//                        System.out.println("Last name: " + lastName);
+//                        System.out.println("Classes: " + classes);
+//                        System.out.println("Student number: " + studentNumber);
 //                        System.out.println("Student number first 2: " + studentNumber.substring(0, 2));
 //                        System.out.println("Student number next 2: " + studentNumber.substring(2, 4));
 //                        System.out.println("Student number 5th character: " + studentNumber.substring(4, 5));
 //                        System.out.println("Student number after 5th: " + studentNumber.substring(5));
-//                        System.out.println("Workload is : " + workload);
+//                        System.out.println("Workload is: " + workload);
+//                        System.out.println("Number after letters is: " + numberAfterLetters);
                         }
                     }
                 }
