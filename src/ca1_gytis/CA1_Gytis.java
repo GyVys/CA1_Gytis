@@ -61,38 +61,37 @@ public class CA1_Gytis {
                     
                     int firstTwo = Integer.parseInt(studentNumber.substring(0, 2));  // extract first two digits from the Student Number
                     
-                    // extract the digits after the letters
+                    // extract the digits after the letters from the Student Number
                     if (studentNumber.length() > 5) {
                         switch (studentNumber.length()) {
                             case 6:
                                 if (studentNumber.substring(4, 5).matches("[a-zA-Z]")) {
-                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(5).trim());  // extract three digits after the letters if 5th char is a letter
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(5).trim());
                                 }
                                 else {
-                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(4).trim());  // extract three digits after the letters if 5th char is a number
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(4).trim());
                                 }   break;
                             case 7:
                                 if (studentNumber.substring(4, 5).matches("[a-zA-Z]")) {
-                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(5).trim());  // extract three digits after the letters if 5th char is a letter
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(5).trim());
                                 }
                                 else {
-                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(4).trim());  // extract three digits after the letters if 5th char is a number
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(4).trim());
                                 }   break;
                             case 8:
                                 if (studentNumber.substring(4, 5).matches("[a-zA-Z]")) {
-                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(5).trim());  // extract three digits after the letters if 5th char is a letter
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(5).trim());
                                 }
                                 else {
-                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(4, 7).trim());  // extract three digits after the letters if 5th char is a number
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(4, 7).trim());
                                 }   break;
                             default:
                                 if (studentNumber.substring(4, 5).matches("[a-zA-Z]")) {
-                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(5, 8).trim());  // extract three digits after the letters if 5th char is a letter
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(5, 8).trim());
                                 }
                                 else {
-                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(4, 7).trim());  // extract three digits after the letters if 5th char is a number
+                                    numberAfterLetters = Integer.parseInt(studentNumber.substring(4, 7).trim());
                                 }
-                                break;
                         }
                     }
                     
@@ -157,6 +156,7 @@ public class CA1_Gytis {
                             System.out.println("Everything after the last letter character must be a number!");
                         }
                         
+                    // If there are two letters only
                     // Check if everything after the last letter character is a number
                     else if (!studentNumber.substring(3, 4).matches("[a-zA-Z]") && !studentNumber.substring(4).matches("[0-9]+")) {
                             System.out.println("Everything after the last letter character must be a number!");
@@ -193,14 +193,15 @@ public class CA1_Gytis {
 //                        System.out.println("Student number 5th character: " + studentNumber.substring(4, 5));
 //                        System.out.println("Student number after 5th: " + studentNumber.substring(5));
 //                        System.out.println("Workload is: " + workload);
-//                        System.out.println("Number after letters is: " + numberAfterLetters);
+                        System.out.println("Number after letters is: " + numberAfterLetters);
                         }
                     }
                 }
             }
             bw.close();
 
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             System.out.println(e);
         }
 
