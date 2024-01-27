@@ -13,7 +13,8 @@ import java.util.Scanner;
 public class CA1_Gytis {
 
     /**
-     * @param args the command line arguments
+     GitHub link
+     https://github.com/GyVys/CA1_Gytis
      */
     public static void main(String[] args) {
         
