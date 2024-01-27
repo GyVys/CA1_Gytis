@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author WhoAreYou
+ * @author Gytis
  */
 public class Operations {
     
@@ -34,7 +34,7 @@ public class Operations {
             String workload = null;
             int numberAfterLetters = 0;
 
-            // first loop is for checking if there are more than one student
+            // first loop is for checking for the number of students
             for (int i = 1; input.hasNextLine(); i++) {
 
                 System.out.println("\nStudent no: " + i);
@@ -53,7 +53,7 @@ public class Operations {
                         classes = Integer.parseInt(array[1]);
                         studentNumber = array[2].trim();
 
-                        // extract the digits after the letters from the Student Number
+                        // extract up to three digits after the letters from the Student Number
                         if (studentNumber.length() > 5) {
                             switch (studentNumber.length()) {
                                 case 6:
@@ -123,7 +123,7 @@ public class Operations {
                         }
 
                         // Second name must be letters and/or numbers
-                        else if (!lastName.matches("[a-zA-Z_0-9]+")) {
+                        else if (!lastName.matches("[a-zA-Z0-9]+")) {
                             System.out.println("Second name must contain letters and/or numbers only!");
                         }
 
@@ -132,7 +132,7 @@ public class Operations {
                             System.out.println("Number of classes must be between 1 and 8 (inclusive)!");
                         }
 
-                        // Student “number” must be a minimum of 6 characters
+                        // Student number must be a minimum of 6 characters
                         else if (!(5 < studentNumber.length())) {
                             System.out.println("A student “number” must be at least 6 characters!");
                         }
@@ -222,7 +222,7 @@ public class Operations {
             System.out.println("How many students?");
             int numberOfStudents = input.nextInt();
 
-            // this loop is for every number students that user selects
+            // this loop is for every number of students that user selects
             for (int i = 1; i <= numberOfStudents; i++) {
 
                 System.out.println("\nStudent no: " + i);
@@ -240,7 +240,7 @@ public class Operations {
                 System.out.println("Enter student number:");
                 String studentNumber = input.next();
 
-                // extract the digits after the letters from the Student Number
+                // extract up to three digits after the letters from the Student Number
                 if (studentNumber.length() > 5) {
                     switch (studentNumber.length()) {
                         case 6:
@@ -310,7 +310,7 @@ public class Operations {
                 }
 
                 // Second name must be letters and/or numbers
-                else if (!lastName.matches("[a-zA-Z_0-9]+")) {
+                else if (!lastName.matches("[a-zA-Z0-9]+")) {
                     System.out.println("Second name must contain letters and/or numbers only!");
                 }
 
@@ -319,7 +319,7 @@ public class Operations {
                     System.out.println("Number of classes must be between 1 and 8 (inclusive)!");
                 }
 
-                // Student “number” must be a minimum of 6 characters
+                // Student number must be a minimum of 6 characters
                 else if (!(5 < studentNumber.length())) {
                     System.out.println("A student “number” must be at least 6 characters!");
                 }
@@ -329,7 +329,7 @@ public class Operations {
                     System.out.println("The first 2 characters must be numbers!");
                 }
 
-                // The 3rd  and 4th characters must be letters
+                // The 3rd and 4th characters must be letters
                 else if (!studentNumber.substring(2, 4).matches("[a-zA-Z]+")) {
                     System.out.println("The 3rd and 4th characters must be letters!");
                 }
