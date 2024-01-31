@@ -80,13 +80,7 @@ public class Operations {
                                         numberAfterLetters = Integer.parseInt(studentNumber.substring(4, 7));
                                     }
                                     break;
-                                default:
-                                    if (studentNumber.substring(4, 5).matches("[a-zA-Z]")) {
-                                        numberAfterLetters = Integer.parseInt(studentNumber.substring(5, 8));
-                                    }
-                                    else {
-                                        numberAfterLetters = Integer.parseInt(studentNumber.substring(4, 7));
-                                    }
+                               
                             }
                         }
 
@@ -267,13 +261,7 @@ public class Operations {
                                 numberAfterLetters = Integer.parseInt(studentNumber.substring(4, 7));
                             }
                             break;
-                        default:
-                            if (studentNumber.substring(4, 5).matches("[a-zA-Z]")) {
-                                numberAfterLetters = Integer.parseInt(studentNumber.substring(5, 8));
-                            } 
-                            else {
-                                numberAfterLetters = Integer.parseInt(studentNumber.substring(4, 7));
-                            }
+                        
                     }
                 }
 
