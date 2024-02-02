@@ -31,6 +31,8 @@ public class CA1_Gytis {
             case 2:
                 Operations.operationManual();
                 break;
+            default:
+                System.out.println("Error, you have to enter 1 or 2.");
         }
     }
 }

@@ -172,12 +172,14 @@ public class Operations {
                         } 
                         else {
                             try {
+                                // writing data to a file
                                 bw.write(studentNumber + " - " + lastName + "\n" + workload + "\n");
                             }
                             catch (Exception e) {
                                 System.out.println(e);
                             }
 
+                            // if all validation passed print a success message
                             System.out.println("Student details were successfully written to a file.");
 
 //                                 these are just for testing purposes
@@ -353,12 +355,14 @@ public class Operations {
                 } 
                 else {
                     try {
+                        // writing data to a file
                         bw.write(studentNumber + " - " + lastName + "\n" + workload + "\n");
                     } 
                     catch (Exception e) {
                         System.out.println(e);
                     }
 
+                    // if all validation passed print a success message
                     System.out.println("Student details were successfully written to a file.");
 
 //                        these are just for testing purposes
